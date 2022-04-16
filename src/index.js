@@ -1,14 +1,24 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Login from './Login';
+import EmployeeHomePage from './EmployeeHomePage'
+import { BrowserRouter, Route, Switch ,Redirect} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import {GlobalProvider} from './Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <GlobalProvider>
+  <BrowserRouter>
+    <Switch>
+    <Route path="/login" component={Login} exact />
+    <Route path="/employee/homepage" component={EmployeeHomePage} exact />
+    <Redirect to="/login" exact/>
+    </Switch>
+    </BrowserRouter>
+    </GlobalProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
