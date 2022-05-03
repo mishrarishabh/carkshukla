@@ -28,11 +28,19 @@ const Login = () => {
     }
 
     const handleSubmit = async (event)=>{
+        
         event.preventDefault();
        const response =  await checkDetails();
        console.log("response checking ************",response)
+       if(response.data)
+       {
         verifyUser(userinput);
         history.push("/employee/homepage");
+       }
+       else
+       {
+           alert("Enter correct Details");
+       }
     }
     return (
         <>
