@@ -12,12 +12,14 @@ const Login = () => {
     const {check,verifyUser} = useContext(GlobalContext);
 
     const checkDetails = async ()=>{
+        console.log("***************userin",userinput)
        const response = await axios({
             method:'POST',
-            url:'https://reqres.in/api/users',
+            url:'https://carkshukla.herokuapp.com/login',
             data:userinput
         })
-        console.log("mkhuigiguyggyu",response)
+        console.log(response);
+        return response;
     }
     const handleChange = (event)=>{
         const keyInput = event.target.name;
@@ -25,9 +27,10 @@ const Login = () => {
        setUserInput({...userinput,[keyInput]:keyValue})
     }
 
-    const handleSubmit =(event)=>{
+    const handleSubmit = async (event)=>{
         event.preventDefault();
-        checkDetails();
+       const response =  await checkDetails();
+       console.log("response checking ************",response)
         verifyUser(userinput);
         history.push("/employee/homepage");
     }
@@ -38,12 +41,12 @@ const Login = () => {
                 <div className="loginfieldalign">
                     <div className="loginfield">
                         <form onSubmit={handleSubmit}>
-                        <select name="type" onChange={handleChange}  required>
+                        <select name="userTpe" onChange={handleChange}  required>
                             <option value="" selected disabled hidden>Select Your Role</option>
                             <option value="admin">Admin</option>
                             <option value="employee">Employee</option>
                         </select>
-                        <input placeholder="Enter UserId" name="userid" onChange={handleChange} className="logininput" required />
+                        <input placeholder="Enter UserId" name="userId" onChange={handleChange} className="logininput" required />
                         <input placeholder="Enter Password" name = "password"  onChange={handleChange} className="logininput" required />
                         <button className="loginbutton">LOGIN</button>
                         </form>

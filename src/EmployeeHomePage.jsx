@@ -6,21 +6,14 @@ import {v1 as uuidv1} from "uuid";
 
 const EmployeeHomePage = ()=>{
     const [rowcount,setRowCount] = useState([{uniqueid:"abcd87-821"}])
-    const {check,workaddRow,verifyUser} = useContext(GlobalContext);
-
+    const {check,workaddRow,removeaddrow,verifyUser,employeeworkupdate} = useContext(GlobalContext);
+    
     const handleRemove=(id)=>{
-        console.log(rowcount,id)
-       const result = rowcount.filter((item)=>{
-        if(item.uniqueid !== id)
-        {
-           return true;
-        }   
-        else
-        {
-            return false;
-        }
-       })
-       setRowCount(result)
+        removeaddrow(id)
+    }
+
+    const handlchange=(event,id)=>{
+        employeeworkupdate({[event.target.name]:event.target.value,uniqueid:id})
     }
 
     const handleaddRow=()=>{
@@ -28,6 +21,7 @@ const EmployeeHomePage = ()=>{
         workaddRow({uniqueid:uid})
         // setRowCount([...rowcount,{uniqueid:uid}])
     }
+    console.log("******************check",check)
 return (
     <>
     <h1>Welcome</h1>
@@ -44,11 +38,11 @@ return (
    check && check.workrowcount && check.workrowcount.map((item)=>{
          return (
             <tr key={item.uniqueid}>
-            <td><TypeaheadExample/></td>
-            <td><TypeaheadExample/></td>
-            <td> <input type="number" id="quantity" name="quantity" min="1" max="12" placeholder="HH"></input>
-            <input type="number" id="quantity" name="quantity" min="0" max="59" placeholder="MM"></input></td>
-            <td> <textarea/></td>
+            <td><TypeaheadExample placeholder="Choose Client Name" id={item.uniqueid}/></td>
+            <td><TypeaheadExample placeholder="Choose Work Type" id={item.uniqueid}/></td>
+            <td> <input type="number" id="quantity" name="hour" min="01" max="12" placeholder="HH" onChange={(e)=>handlchange(e,item.uniqueid)}></input>
+            <input type="number" id="quantity" name="minute" min="0" max="59" placeholder="MM"  onChange={(e)=>handlchange(e,item.uniqueid)}></input></td>
+            <td> <textarea name="remark" onChange={(e)=>handlchange(e,item.uniqueid)}/></td>
             <td><button className="removebutton" onClick={()=>handleRemove(item.uniqueid)}>REMOVE</button></td>
             </tr>
          )

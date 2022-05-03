@@ -6,7 +6,8 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-const TypeaheadField = () => {
+const TypeaheadField = (props) => {
+  const {placeholder} = props
   const [selected, setSelected] = useState([]);
  console.log("jselection",selected)
   return (
@@ -14,7 +15,7 @@ const TypeaheadField = () => {
       id="typeahead"
       onChange={setSelected}
       options={data}
-      placeholder="Choose Client Name"
+      placeholder={placeholder}
       selected={selected}
     />
   );
