@@ -29,3 +29,21 @@ Typeahead {
    margin-left: 41%;
    margin-top: 5%;
 }
+.createUserButton, .deleteUserButton,.addClientButton,.deleteClientButton{
+    background-color: rgb(75, 186, 238);
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    float: right;
+}
+.logoutButton{
+    background-color: rgb(248, 120, 120);
+    float: right;
+}
+.viewUserModal{
+    width: 1000px;
+}
+.modalButton{
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
+import {GlobalContext} from './Context';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import data from './data';
 
@@ -7,9 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const TypeaheadField = (props) => {
-  const {placeholder} = props
+  const {placeholder,name,id} = props
   const [selected, setSelected] = useState([]);
- console.log("jselection",selected)
+  const {check,employeeworkupdate} = useContext(GlobalContext);
+  console.log("checdnknvnv",check)
+  useEffect(()=>{
+    employeeworkupdate({[name]:selected[0],uniqueid:id})
+  },[selected[0]])
   return (
     <Typeahead
       id="typeahead"

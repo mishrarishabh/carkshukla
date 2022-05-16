@@ -36,7 +36,6 @@ export const GlobalProvider = ({children}) =>{
       }  
 
       const employeeworkupdate= (data) => {
-        console.log(model)
         dispatch({
           type: 'EMPLOYEEWORKUPDATE',
           payload: data

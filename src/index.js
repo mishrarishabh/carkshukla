@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Login from './Login';
 import EmployeeHomePage from './EmployeeHomePage'
+import AdminHomePage from './AdminHomePage'
 import { BrowserRouter, Route, Switch ,Redirect} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import {GlobalProvider} from './Context';
@@ -15,6 +16,7 @@ root.render(
     <Switch>
     <Route path="/login" component={Login} exact />
     <Route path="/employee/homepage" component={EmployeeHomePage} exact />
+    <Route path="/admin/homepage" component={AdminHomePage} exact />
     <Redirect to="/login" exact/>
     </Switch>
     </BrowserRouter>
