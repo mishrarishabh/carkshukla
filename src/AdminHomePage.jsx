@@ -10,11 +10,11 @@ const AdminHomePage = ()=>{
     useEffect(()=>{
         if(check.userdetails === undefined)
         {
-           window.location.href='http://localhost:3000/login';
+           window.location.href='https://carkshukla-ui.herokuapp.com/login';
         }
     },[]) 
     const handleLogout=()=>{
-        window.location.href='http://localhost:3000/login';
+        window.location.href='https://carkshukla-ui.herokuapp.com/login';
     }
     return (check?.userdetails?.[0].userTpe ?(
         <>

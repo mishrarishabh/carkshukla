@@ -11,7 +11,6 @@ const TypeaheadField = (props) => {
   const {placeholder,name,id} = props
   const [selected, setSelected] = useState([]);
   const {check,employeeworkupdate} = useContext(GlobalContext);
-  console.log("checdnknvnv",check)
   useEffect(()=>{
     employeeworkupdate({[name]:selected[0],uniqueid:id})
   },[selected[0]])

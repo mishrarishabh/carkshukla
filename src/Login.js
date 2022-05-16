@@ -15,13 +15,13 @@ const Login = () => {
         window.location.reload();
      }
     },[])
-    const checkDetails =  ()=>{
-    //    const response = await axios({
-        //     method:'POST',
-        //     url:'https://carkshukla.herokuapp.com/login',
-        //     data:userinput
-        // })
-        return {data:'mrishabh'};
+    const checkDetails =  async ()=>{
+       const response = await axios({
+            method:'POST',
+            url:'https://carkshukla.herokuapp.com/login',
+            data:userinput
+        })
+        return response;
     }
     const handleChange = (event)=>{
         const keyInput = event.target.name;

@@ -11,7 +11,7 @@ const EmployeeHomePage = ()=>{
     useEffect(()=>{
         if(check.userdetails === undefined)
         {
-           window.location.href='http://localhost:3000/login';
+           window.location.href='https://carkshukla-ui.herokuapp.com/login';
         }
     },[])
     const submitApproval= async()=>{
@@ -49,7 +49,7 @@ const EmployeeHomePage = ()=>{
         employeeworkupdate({[event.target.name]:event.target.value.trim(),uniqueid:id})
     }
     const handleLogout=()=>{
-        window.location.href='http://localhost:3000/login';
+        window.location.href='https://carkshukla-ui.herokuapp.com/login';
     }
     const handleaddRow=()=>{
         const uid = uuidv1().slice(0,10)
