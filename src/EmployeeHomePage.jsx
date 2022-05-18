@@ -30,7 +30,7 @@ const EmployeeHomePage = ()=>{
              console.log("(((((((((",check.workrowcount)
              const payloadData = check.workrowcount.map((item)=>{
                  delete item.uniqueid
-                 return {...item,empId:check.userdetails[0].userId};
+                 return {...item,empId:check.userdetails[0].empId};
              })
             const response = await axios({
             method:'POST',
