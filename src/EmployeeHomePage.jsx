@@ -55,7 +55,7 @@ const EmployeeHomePage = ()=>{
         const uid = uuidv1().slice(0,10)
         workaddRow({uniqueid:uid})
     }
-return (check?.userdetails?.[0].userTpe ? (
+return (check?.userdetails?.[0].empDesignation ? (
     <>
      <button className="logoutButton" onClick={handleLogout}>Logout</button>
     <h1>Welcome</h1>
