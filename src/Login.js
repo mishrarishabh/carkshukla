@@ -18,7 +18,7 @@ const Login = () => {
     const checkDetails =  async ()=>{
        const response = await axios({
             method:'POST',
-            url:'https://carkshukla.herokuapp.com/login',
+            url:'https://carkshukla.herokuapp.com/login',  
             data:userinput
         })
         return response;
@@ -53,13 +53,13 @@ const Login = () => {
                 <div className="loginfieldalign">
                     <div className="loginfield">
                         <form onSubmit={handleSubmit}>
-                        <select name="userTpe" onChange={handleChange}  required>
+                        <select name="empDesignation" onChange={handleChange}  required>
                             <option value="" selected disabled hidden>Select Your Role</option>
                             <option value="admin">Admin</option>
                             <option value="employee">Employee</option>
                         </select>
-                        <input placeholder="Enter UserId" name="userId" onChange={handleChange} className="logininput" required />
-                        <input placeholder="Enter Password" name = "password"  onChange={handleChange} className="logininput" required />
+                        <input placeholder="Enter UserId" name="empId" onChange={handleChange} className="logininput" required />
+                        <input placeholder="Enter Password" name = "empPassword"  onChange={handleChange} className="logininput" required />
                         <button className="loginbutton">LOGIN</button>
                         </form>
                     </div>
