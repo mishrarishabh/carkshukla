@@ -1,5 +1,6 @@
 import React,{useState,useContext,useEffect} from "react";
 import {GlobalContext} from './Context';
+import {useHistory} from 'react-router-dom'
 import TypeaheadExample from "./Typeahead";
 import './style/employeeWork.css';
 import {v1 as uuidv1} from "uuid";
@@ -7,7 +8,7 @@ import axios from 'axios';
 
 const EmployeeHomePage = ()=>{
     const {check,workaddRow,removeaddrow,employeeworkupdate} = useContext(GlobalContext);
-        
+    const history = useHistory();  
     useEffect(()=>{
         if(check.userdetails === undefined)
         {
@@ -38,6 +39,13 @@ const EmployeeHomePage = ()=>{
             data:payloadData
         })
         console.log(response)
+        if(response.data === 'Success')
+        {
+            history.push("/confirmation");
+        }
+        else{
+            alert("Your response has not been submitted due to some internal error,please try again")
+        }
         }
     }
     
